@@ -1,0 +1,14 @@
+<suite name="Suite" parallel="none">
+	<test name="Test">
+		<classes>
+
+		<class name="com.appium.webdriver.tests.AndroidTest" />
+		<methods>		
+				<include name="VerifyAddition" />
+					<include name="VerifyMultiplication" />
+						<include name="VerifySubtraction" />
+		</methods>		
+		</classes>
+	
+	</test>
+</suite> <!-- Suite -->
