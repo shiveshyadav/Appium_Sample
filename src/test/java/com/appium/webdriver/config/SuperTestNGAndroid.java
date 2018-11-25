@@ -1,7 +1,6 @@
 package com.appium.webdriver.config;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
-import static com.appium.webdriver.config.Prop.*;
 import java.io.IOException;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -23,13 +22,14 @@ public class SuperTestNGAndroid  {
 	public void LaunchBrowser() throws Exception
 	{
 
+		ReadPropertyFile prop=new ReadPropertyFile();
 		//Desired Capabilities settings to launch application in Device		
 		DesiredCapabilities capabilities = new DesiredCapabilities(); 
-		capabilities.setCapability("app", APP_PATH);
-		capabilities.setCapability("platformName", PLATFORM_NAME);		
-		capabilities.setCapability("deviceName", DEVICE_NAME);	
-		capabilities.setCapability("platformVersion", PLATFORM_VERSION);	
-		driver = new AndroidDriver <AndroidElement>(new URL("http://"+SERVER+":"+PORT+"/wd/hub"), capabilities) ;	    
+		capabilities.setCapability("app", prop.getAppPath());
+		capabilities.setCapability("platformName", prop.getPlatformName());		
+		capabilities.setCapability("deviceName", prop.getDeviceName());	
+		capabilities.setCapability("platformVersion", prop.getPlatformVersion());	
+		driver = new AndroidDriver <AndroidElement>(new URL("http://"+prop.getServer()+":"+prop.getServer()+"/wd/hub"), capabilities) ;	    
 		System.out.println("Appium server started");
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
