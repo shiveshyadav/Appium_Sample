@@ -7,7 +7,7 @@ import java.util.Properties;
 public class ReadPropertyFile {
 
 	Properties props=null;
-	FileInputStream inputstream=new FileInputStream("/Appium_Sample/config.properties");
+	FileInputStream inputstream=new FileInputStream(System.getProperty("user.dir")+"//config.properties");
 	
 	public ReadPropertyFile() throws IOException {
 		
